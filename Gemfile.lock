@@ -3,6 +3,7 @@ PATH
   specs:
     alchemy_contentable (0.0.1)
       alchemy_cms (>= 2.1)
+      magiclabs-userstamp (~> 2.0.2)
       rails (~> 3.2.1)
 
 PATH

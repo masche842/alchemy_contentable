@@ -1,0 +1,2 @@
+describe EventsController do
+end

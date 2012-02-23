@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'alchemy_cms', [">= 2.1"]
   s.add_dependency "rails", "~> 3.2.1"
 
+  s.add_runtime_dependency(%q<magiclabs-userstamp>, ["~> 2.0.2"])
+
   s.add_development_dependency 'rspec-rails', ["~> 2.7"]
   s.add_development_dependency "sqlite3"
 

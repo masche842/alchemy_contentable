@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  starts_at: 2012-02-23
+  public: false
+  locked: false
+  locked_by: 1
+  language_code: MyString
+  language_id: 1
+  page_layout: MyString
+
+two:
+  name: MyString
+  starts_at: 2012-02-23
+  public: false
+  locked: false
+  locked_by: 1
+  language_code: MyString
+  language_id: 1
+  page_layout: MyString
