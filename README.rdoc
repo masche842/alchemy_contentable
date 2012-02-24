@@ -1,3 +1,54 @@
 = AlchemyContentable
 
-This project rocks and uses MIT-LICENSE.
+Use Alchemys element-essences-system in any model you like!
+
+= Setup
+
+1. Setup your Rails app
+2. Install and configure Alchemy CMS
+3. add alchemy_contentable to Gemfile
+4. create a model or extend it with (at least) this fields:
+  - name:string
+  - public:boolean
+  - locked:boolean
+  - locked_by:boolean
+  - page_layout
+  or
+  - name:string
+  - add t.contentable to migration
+5. add t.stampable to migration
+6. setup routes for your model:
+      resources :elements
+      collection do
+        post :order
+        post :flush
+        post :copy_language_tree
+        get :switch_language
+        get :create_language
+        get :link
+        get :sort
+      end
+      member do
+        post :unlock
+        post :publish
+        post :fold
+        post :visit
+        get :configure
+        get :preview
+      end
+7. include AlchemyContentable::ModelMixin in your model
+8. include AlchemyContentable::ControllerMixin in the model's controller
+9. include AlchemyContentable::AdminControllerMixin in the model's admin-controller and inherit from Alchemy::Admin::ResourcesController there
+10. inherit your models controller from Alchemy::BaseController
+11. set up authorization to manage, edit_content and update_content
+12. (optional) mount your controller as a module in alchemy
+
+= Issues
+
+- no multilingual contents (yet)
+- problems with authorization, commented many filters out
+- no clipboard
+- no tests, but rspec setup already...
+
+
+
