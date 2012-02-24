@@ -10,8 +10,6 @@ module AlchemyContentable
 
       model.has_many :cells, :as => :contentable, :dependent => :destroy, :class_name => 'Alchemy::Cell'
       model.has_many :elements, :as => :contentable, :dependent => :destroy, :order => :position, :class_name => 'Alchemy::Element'
-      #model.has_and_belongs_to_many :to_be_sweeped_elements, :class_name => 'Alchemy::Element', :uniq => true, :join_table => 'alchemy_elements_alchemy_pages'
-      model.belongs_to :language, :class_name => 'Alchemy::Language'
 
       model.has_many :to_be_sweeped_elements, :through => :sweeped_contentables,
                      :class_name => 'Alchemy::Element', :source => :element, :uniq => true
@@ -37,20 +35,8 @@ module AlchemyContentable
 
     module ClassMethods
 
-      def language_roots
-        where(:language_root => true)
-      end
-
-      def layoutpages
-        where(:layoutpage => true)
-      end
-
       def not_locked
         where(:locked => false)
-      end
-
-      def visible
-        where(:visible => true)
       end
 
       def published
@@ -69,22 +55,8 @@ module AlchemyContentable
         accessable
       end
 
-      def public_language_roots
-        where(:language_root => true).
-          where("`alchemy_pages`.`language_code` IN ('#{Alchemy::Language.all_codes_for_published.join('\',\'')}')").
-          where(:public => true)
-      end
-
       def all_last_edited_from(user)
         where(:updater_id => user.id).order('`alchemy_pages`.`updated_at` DESC').limit(5)
-      end
-
-      def with_language(language)
-        where(:language_id => language_id)
-      end
-
-      def contentpages
-        where("`alchemy_pages`.`layoutpage` = 0 AND `alchemy_pages`.`parent_id` IS NOT NULL")
       end
 
       def flushables
@@ -135,45 +107,6 @@ module AlchemyContentable
         else
           raise page.errors.full_messages
         end
-      end
-
-      def all_for_language(language_id)
-        where(:language_id => language_id)
-      end
-
-      def layout_root_for(language_id)
-        where({:parent_id => self.class.root.id, :layoutpage => true, :language_id => language_id}).limit(1).first
-      end
-
-      def find_or_create_layout_root_for(language_id)
-        layoutroot = layout_root_for(language_id)
-        return layoutroot if layoutroot
-        language = Language.find(language_id)
-        layoutroot = self.class.new({
-                                :name => "Layoutroot for #{language.name}",
-                                :layoutpage => true,
-                                :language => language,
-                                :do_not_autogenerate => true
-                              })
-        if layoutroot.save(:validate => false)
-          layoutroot.move_to_child_of(self.class.root)
-          return layoutroot
-        else
-          raise "Layout root for #{language.name} could not be created"
-        end
-      end
-
-      def all_from_clipboard(clipboard)
-        return [] if clipboard.blank?
-        self.find_all_by_id(clipboard.collect { |i| i[:id] })
-      end
-
-      def all_from_clipboard_for_select(clipboard, language_id, layoutpage = false)
-        return [] if clipboard.blank?
-        clipboard_pages = self.all_from_clipboard(clipboard)
-        allowed_page_layouts = Alchemy::PageLayout.selectable_layouts(language_id, layoutpage)
-        allowed_page_layout_names = allowed_page_layouts.collect { |p| p['name'] }
-        clipboard_pages.select { |cp| allowed_page_layout_names.include?(cp.page_layout) }
       end
     end
 
@@ -494,37 +427,6 @@ module AlchemyContentable
       definition["redirects_to_external"]
     end
 
-    def first_public_child
-      self.children.where(:public => true).limit(1).first
-    end
-
-
-    # Gets the language_root page for page
-    def get_language_root
-      return self if self.language_root
-      page = self
-      while page.parent do
-        page = page.parent
-        break if page.language_root?
-      end
-      return page
-    end
-
-
-    def copy_children_to(new_parent)
-      self.children.each do |child|
-        next if child == new_parent
-        new_child = ContentableMixin.copy(child, {
-          :language_id => new_parent.language_id,
-          :language_code => new_parent.language_code,
-          :name => child.name + ' (' + I18n.t('Copy') + ')',
-          :urlname => child.redirects_to_external? ? child.urlname : '',
-          :title => ''
-        })
-        new_child.move_to_child_of(new_parent)
-        child.copy_children_to(new_child) unless child.children.blank?
-      end
-    end
 
     # Returns true or false if the page has a page_layout that has cells.
     def can_have_cells?
@@ -602,11 +504,6 @@ module AlchemyContentable
           element.move_to_bottom if element
         end
       end
-    end
-
-    def set_language_code
-      return false if self.language.blank?
-      self.language_code = self.language.code
     end
 
     def create_cells

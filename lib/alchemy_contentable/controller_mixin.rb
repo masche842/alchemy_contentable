@@ -18,7 +18,7 @@ module AlchemyContentable
 
       #controller.before_filter :render_page_or_redirect, :only => [:show, :sitemap]
       controller.before_filter :load_page, :only => [:show, :sitemap]
-      controller.before_filter :perform_search, :only => :show, :if => proc { configuration(:ferret) }
+      #controller.before_filter :perform_search, :only => :show, :if => proc { configuration(:ferret) }
       controller.before_filter :add_contentable_to_view_path
       #controller.filter_access_to :show, :attribute_check => true, :model => resource_model, :load_method => :load_page
 
@@ -213,6 +213,16 @@ module AlchemyContentable
 
     def should_be_nested?
       !params_for_nested_url.blank?
+    end
+
+    def layout_for_page
+      if !params[:layout].blank? && params[:layout] != 'none'
+        params[:layout]
+      elsif File.exist?(Rails.root.join('app/views/layouts', 'application.html.erb'))
+        'application'
+      else
+        'alchemy/pages'
+      end
     end
 
   end
