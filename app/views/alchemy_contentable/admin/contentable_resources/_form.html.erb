@@ -1,0 +1,38 @@
+<%= form_for [resource_url_scope, :admin, resource_instance_variable], :remote => true do |f| %>
+  <div id="errors" style="display: none"></div>
+  <table>
+    <%- resource_attributes.each do |attribute| -%>
+      <tr>
+        <td class="label"><%= f.send :label, attribute[:name] %></td>
+        <%- if attribute[:type] == :boolean -%>
+          <td class="checkbox"><%= f.send :check_box, attribute[:name] -%></td>
+        <%- else -%>
+          <td class="input"><%= f.send :text_field, attribute[:name], :class => 'thin_border long' -%></td>
+        <%- end -%>
+      </tr>
+    <%- end -%>
+    <% if resource_instance_variable.new_record? %>
+      <tr>
+        <td class="label">
+          <%= f.label :page_layout %>
+        </td>
+        <td class="select">
+          <%= f.select('page_layout', @page_layouts, :class => 'alchemy_selectbox') %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="label"><%= t("page_status") %>:</td>
+      <td class="checkbox">
+        <%= f.check_box :public -%>
+        <%= f.label :public %>
+      </td>
+    </tr>
+    <tr>
+
+      <td class="submit" colspan="2">
+        <%= f.button t('save'), :class => 'button' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
