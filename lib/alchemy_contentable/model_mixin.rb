@@ -15,6 +15,8 @@ module AlchemyContentable
                      :class_name => 'Alchemy::Element', :source => :element, :uniq => true
       model.has_many :sweeped_contentables, :as => :contentable, :class_name => 'Alchemy::SweepedContentables'
       Alchemy::Element.add_contentable_type(model)
+      # load it once to make active...
+      model.new
 
       model.validates_presence_of :name, :message => '^' + I18n.t("please enter a name")
       model.validates_presence_of :page_layout, :message => '^' + I18n.t("Please choose a page layout."), :unless => :systempage?

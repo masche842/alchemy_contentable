@@ -12,12 +12,13 @@ module AlchemyContentable
       controller.filter_access_to [:index, :link, :layoutpages, :new, :switch_language, :create, :move, :flush], :attribute_check => false
 
       controller.cache_sweeper Alchemy::PagesSweeper, :only => [:publish], :if => proc { Alchemy::Config.get(:cache_pages) }
+      controller.cache_sweeper Alchemy::ContentablesSweeper, :only => [:publish], :if => proc { Alchemy::Config.get(:cache_pages) }
 
     end
 
 
     def index
-      if !params[:query].blank?
+      unless params[:query].blank?
         search_terms = ActiveRecord::Base.sanitize("%#{params[:query]}%")
         items = resource_model.where(searchable_resource_attributes.map { |attribute|
           "`#{namespaced_resources_name}`.`#{attribute[:name]}` LIKE #{search_terms}"
@@ -25,7 +26,7 @@ module AlchemyContentable
       else
         items = resource_model
       end
-      instance_variable_set("@#{resources_name}", items.paginate(:page => params[:page] || 1, :per_page => per_page_value_for_screen_size))
+      instance_variable_set("@#{resources_name}", items.page(params[:page] || 1).per(per_page_value_for_screen_size))
     end
 
     def show
@@ -177,5 +178,5 @@ module AlchemyContentable
                       ).path)
     end
 
-  end 
+  end
 end
