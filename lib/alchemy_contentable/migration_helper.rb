@@ -8,7 +8,7 @@ module AlchemyContentable
       def contentable
         column(:public, :boolean)
         column(:locked, :boolean)
-        column(:locked_by, :boolean)
+        column(:locked_by, :integer)
         column(:page_layout, :string)
       end
     end

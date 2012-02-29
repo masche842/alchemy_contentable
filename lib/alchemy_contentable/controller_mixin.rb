@@ -73,9 +73,6 @@ module AlchemyContentable
       end
     end
 
-    def edit
-
-    end
 
     protected
 

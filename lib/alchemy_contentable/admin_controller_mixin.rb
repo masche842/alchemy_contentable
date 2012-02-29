@@ -3,13 +3,13 @@ module AlchemyContentable
   module AdminControllerMixin
 
     def self.included(controller)
-      controller.send(:include, ResourcesAdminControllerMixin)
+      #controller.send(:include, ResourcesAdminControllerMixin)
       controller.helper "alchemy/pages"
       controller.helper "alchemy/admin/pages"
-      controller.helper ResourcesHelper
+      #controller.helper ResourcesHelper
 
-      controller.filter_access_to [:show, :unlock, :visit, :publish, :configure, :edit, :update, :destroy, :fold], :attribute_check => true
-      controller.filter_access_to [:index, :link, :layoutpages, :new, :switch_language, :create, :move, :flush], :attribute_check => false
+      #controller.filter_access_to [:show, :unlock, :visit, :publish, :configure, :edit, :update, :destroy, :fold], :attribute_check => true
+      #controller.filter_access_to [:index, :link, :layoutpages, :new, :switch_language, :create, :move, :flush], :attribute_check => false
 
       controller.cache_sweeper Alchemy::PagesSweeper, :only => [:publish], :if => proc { Alchemy::Config.get(:cache_pages) }
       controller.cache_sweeper Alchemy::ContentablesSweeper, :only => [:publish], :if => proc { Alchemy::Config.get(:cache_pages) }
@@ -18,7 +18,7 @@ module AlchemyContentable
 
 
     def index
-      unless params[:query].blank?
+      if !params[:query].blank?
         search_terms = ActiveRecord::Base.sanitize("%#{params[:query]}%")
         items = resource_model.where(searchable_resource_attributes.map { |attribute|
           "`#{namespaced_resources_name}`.`#{attribute[:name]}` LIKE #{search_terms}"
@@ -59,7 +59,7 @@ module AlchemyContentable
       load_resource
       if resource_instance_variable.locked? && resource_instance_variable.locker && resource_instance_variable.locker.logged_in? && resource_instance_variable.locker != current_user
         flash[:notice] = t("This page is locked by %{name}", :name => (resource_instance_variable.locker.name rescue t('unknown')))
-        redirect_to resource_url_scope.send("admin_#{resources_name}_path")
+        redirect_to resources_path
       else
         resource_instance_variable.lock(current_user)
         @locked_contentables = resource_model.all_locked_by(current_user)
@@ -140,7 +140,7 @@ module AlchemyContentable
       resource_instance_variable.public = true
       resource_instance_variable.save
       flash[:notice] = t("page_published", :name => resource_instance_variable.name)
-      redirect_back_or_to_default(resource_url_scope.send("admin_#{resources_name}_path"))
+      redirect_back_or_to_default(resources_path)
     end
 
     def flush

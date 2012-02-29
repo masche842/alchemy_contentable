@@ -3,14 +3,14 @@ module Alchemy
 
 		def after_update(contentable)
 			unless contentable.layoutpage?
-				expire_page(contentable)
+				expire_contentable(contentable)
 				check_multipage_elements(contentable)
 			end
 		end
 
 		def after_destroy(contentable)
 			unless contentable.layoutpage?
-				expire_page(contentable)
+				expire_contentable(contentable)
 				check_multipage_elements(contentable)
 			end
 		end
@@ -19,21 +19,22 @@ module Alchemy
 
 		def check_multipage_elements(contentable)
 			contentable.elements.each do |element|
+        to_sweep_contentables = element.send("to_sweep_#{contentable.class.name.underscore.split('/').last.pluralize}")
 				# are their pages beneath mine?
-				unless element.to_sweep_contentables.detect{ |d| d != contentable }.nil?
+				unless to_sweep_contentables.detect{ |d| d != contentable }.nil?
 					# yepp! there are more pages than mine
-					contentables = element.to_sweep_contentables.find_all_by_public_and_locked(true, false)
+					contentables = to_sweep_contentables.find_all_by_public_and_locked(true, false)
 					unless contentables.blank?
 						# expire current page, even if it's locked
 						contentables.push(contentable).each do |contentable|
-							expire_page(contentable)
+							expire_contentable(contentable)
 						end
 					end
 				end
 			end
 		end
 
-		def expire_page(contentable)
+		def expire_contentable(contentable)
 			return if contentable.do_not_sweep
 			# TODO: We should change this back to expire_action after Rails 3.2 was released.
 			# expire_action(
@@ -46,10 +47,7 @@ module Alchemy
       return if alchemy.nil?
 			expire_fragment(ActionController::Caching::Actions::ActionCachePath.new(
 				self,
-				alchemy.show_page_url(
-					:urlname => contentable.urlname_was,
-					:lang => multi_language? ? contentable.language_code : nil
-				),
+				main_app.url_for(contentable),
 				false
 			).path)
 		end

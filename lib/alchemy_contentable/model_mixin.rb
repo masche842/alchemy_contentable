@@ -14,6 +14,7 @@ module AlchemyContentable
       model.has_many :to_be_sweeped_elements, :through => :sweeped_contentables,
                      :class_name => 'Alchemy::Element', :source => :element, :uniq => true
       model.has_many :sweeped_contentables, :as => :contentable, :class_name => 'Alchemy::SweepedContentables'
+
       Alchemy::Element.add_contentable_type(model)
       # load it once to make active...
       model.new

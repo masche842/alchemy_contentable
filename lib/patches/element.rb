@@ -1,3 +1,5 @@
+require Alchemy::Engine.root.join('app', 'models', 'alchemy', 'element')
+
 Alchemy::Element.class_eval do
 
   # All Elements inside a cell are a list. All Elements not in cell are in the cell_id.nil list.
@@ -13,6 +15,7 @@ Alchemy::Element.class_eval do
   end
 
   belongs_to :contentable, :polymorphic => true
+
   def self.contentable_identifier(contentable_class)
     contentable_class.name.underscore.split('/').last.pluralize
   end

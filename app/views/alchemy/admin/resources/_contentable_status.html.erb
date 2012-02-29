@@ -1,0 +1,7 @@
+<span class="page_status_and_name" id="page_<%= resource_instance_variable.id %>_status">
+    <span class="page_name"><%= resource_instance_variable.name %></span>
+
+    <span class="page_status <%= resource_instance_variable.public ? 'public' : 'not_public' %>" title="<%= resource_instance_variable.public ? t('Page public') : t('Page not public') %>"></span>
+    <span class="page_status <%= resource_instance_variable.visible ? 'visible' : 'not_visible' %>" title="<%= resource_instance_variable.visible ? t('Page visible') : t('Page not visible') %>"></span>
+    <span class="page_status <%= resource_instance_variable.restricted ? 'restricted' : 'not_restricted' %>" title="<%= resource_instance_variable.restricted ? t('Page restricted') : t('Page not restricted') %>"></span>
+</span>
