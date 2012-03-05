@@ -1,5 +1,3 @@
-require Alchemy::Engine.root.join('app', 'models', 'alchemy', 'element')
-
 Alchemy::Element.class_eval do
 
   # All Elements inside a cell are a list. All Elements not in cell are in the cell_id.nil list.
@@ -8,10 +6,12 @@ Alchemy::Element.class_eval do
   validate :extend_position_validation_scope
 
   def extend_position_validation_scope
-    self.errors.delete(:position) if self.errors[:position] and
-      self.contentable_type and self.contentable_id and
-      self.class.where(:position => 1, :cell_id => self.cell_id, :contentable_id => self.contentable_id, :contentable_type => self.contentable_type).where("id != ?", self.id).first.nil?
-    true
+    if self.errors[:position] and
+        self.contentable_type and self.contentable_id and
+        self.class.where(:position => self.position, :cell_id => self.cell_id, :contentable_id => self.contentable_id, :contentable_type => self.contentable_type).where("id != ?", self.id).first.nil?
+      self.errors.delete(:position)
+      true
+    end
   end
 
   belongs_to :contentable, :polymorphic => true

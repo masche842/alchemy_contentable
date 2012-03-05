@@ -139,7 +139,7 @@ module AlchemyContentable
     def perform_search
       searchresult_page_layouts = Alchemy::PageLayout.get_all_by_attributes({:searchresults => true})
       if searchresult_page_layouts.any?
-        @search_result_page = resource_model.find_by_page_layout_and_public_and_language_id(searchresult_page_layouts.first["name"], true, session[:language_id])
+        @search_result_page = resource_handler.model.find_by_page_layout_and_public_and_language_id(searchresult_page_layouts.first["name"], true, session[:language_id])
         if !params[:query].blank? && @search_result_page
           @search_results = []
           %w(Alchemy::EssenceText Alchemy::EssenceRichtext).each do |e|

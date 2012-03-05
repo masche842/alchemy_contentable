@@ -15,6 +15,7 @@ module AlchemyContentable
                      :class_name => 'Alchemy::Element', :source => :element, :uniq => true
       model.has_many :sweeped_contentables, :as => :contentable, :class_name => 'Alchemy::SweepedContentables'
 
+      require 'alchemy_contentable/patches/element'
       Alchemy::Element.add_contentable_type(model)
       # load it once to make active...
       model.new
@@ -472,21 +473,21 @@ module AlchemyContentable
 
     def find_next_or_previous_contentable(direction = "next", options = {})
       if direction == "previous"
-        step_direction = ["#{resource_model_name}.lft < ?", self.lft]
+        step_direction = ["#{resource_handler.model_name}.lft < ?", self.lft]
         order_direction = "lft DESC"
       else
-        step_direction = ["#{resource_model_name}.lft > ?", self.lft]
+        step_direction = ["#{resource_handler.model_name}.lft > ?", self.lft]
         order_direction = "lft"
       end
-      conditions = resource_model.merge_conditions(
+      conditions = resource_handler.model.merge_conditions(
         {:parent_id => self.parent_id},
         {:public => options[:public]},
         step_direction
       )
       if !options[:restricted].nil?
-        conditions = resource_model.merge_conditions(conditions, {:restricted => options[:restricted]})
+        conditions = resource_handler.model.merge_conditions(conditions, {:restricted => options[:restricted]})
       end
-      resource_model.where(conditions).order(order_direction).limit(1)
+      resource_handler.model.where(conditions).order(order_direction).limit(1)
     end
 
     # Converts the given nbame into an url friendly string
