@@ -5,12 +5,12 @@
 	<%= render :partial => 'contentable_status' %>
 	<%- else -%>
 	<div class="subnavi_tab wide" id="locked_page_<%= contentable.id %>">
-		<%= link_to resource_url_scope.send("edit_admin_#{resource_model_name}_path", contentable) do %>
+		<%= link_to resource_url_scope.send("edit_admin_#{resource_handler.model_name}_path", contentable) do %>
 		<span class="page_name" title="<%= contentable.name %>">
 			<%= truncate contentable.name, :length => 15 %>
 		</span>
 		<% end %>
-		<%= form_tag(resource_url_scope.send("unlock_admin_#{resource_model_name}_path", contentable), :remote => true) do %>
+		<%= form_tag(resource_url_scope.send("unlock_admin_#{resource_handler.model_name}_path", contentable), :remote => true) do %>
 			<button class="icon_button small" title="<%= t('explain_unlocking') %>">
 				<%= render_icon('close small') %>
 			</button>
@@ -23,9 +23,9 @@
 <%- content_for(:toolbar) do -%>
 <div id="toolbar_buttons">
 	<div class="button_with_label">
-		<%= form_tag resource_url_scope.send("unlock_admin_#{resource_model_name}_path",
+		<%= form_tag resource_url_scope.send("unlock_admin_#{resource_handler.model_name}_path",
                                          @contentable,
-                                         :redirect_to => @layoutpage ? alchemy.admin_layoutpages_path : resource_url_scope.send("admin_#{resources_name}_path", @contentable)),
+                                         :redirect_to => @layoutpage ? alchemy.admin_layoutpages_path : resource_url_scope.send("admin_#{resource_handler.resources_name}_path", @contentable)),
                  :id => 'unlock_page_form' do %>
 			<button class="icon_button" title="<%= t('explain_unlocking') %>">
 				<%= render_icon('close') %>
@@ -35,7 +35,7 @@
 	</div>
 	<%- unless resource_instance_variable.layoutpage? -%>
 	<div class="button_with_label">
-		<%= form_tag resource_url_scope.send("visit_admin_#{resource_model_name}_path", resource_instance_variable, :id => 'visit_page_form') do %>
+		<%= form_tag resource_url_scope.send("visit_admin_#{resource_handler.model_name}_path", resource_instance_variable, :id => 'visit_page_form') do %>
 			<button class="icon_button" title="<%= t('Visit page') %>">
 				<%= render_icon('visit_page') %>
 			</button>
@@ -45,7 +45,7 @@
 	<%- end -%>
 	<%- if configuration(:cache_pages) && !resource_instance_variable.layoutpage? -%>
 	<div class="button_with_label">
-		<%= form_tag resource_url_scope.send("publish_admin_#{resource_model_name}_path", resource_instance_variable, :id => 'publish_page_form') do -%>
+		<%= form_tag resource_url_scope.send("publish_admin_#{resource_handler.model_name}_path", resource_instance_variable, :id => 'publish_page_form') do -%>
 			<button class="icon_button" title="<%= t('explain_publishing') %>">
 				<%= render_icon('publish') %>
 			</button>
@@ -85,11 +85,11 @@
 <script type="text/javascript" charset="utf-8">
 
 	Alchemy.openPreviewWindow = function() {
-		Alchemy.PreviewWindow.init('<%= resource_url_scope.send("admin_#{resource_model_name}_url", resource_instance_variable) %>', '<%= t("Page Preview") -%>');
+		Alchemy.PreviewWindow.init('<%= resource_url_scope.send("admin_#{resource_handler.model_name}_url", resource_instance_variable) %>', '<%= t("Page Preview") -%>');
 	}
 
 	Alchemy.openElementsWindow = function() {
-		Alchemy.ElementsWindow.init('<%= alchemy.admin_elements_path(:contentable_id => resource_instance_variable.id, :contentable_type => resource_model_name) -%>', {
+		Alchemy.ElementsWindow.init('<%= alchemy.admin_elements_path(:contentable_id => resource_instance_variable.id, :contentable_type => resource_handler.model_name) -%>', {
 			texts: {
 				title: '<%= t("Elements") -%>',
 				dirtyTitle: '<%= t("Warning!") -%>',
@@ -104,7 +104,7 @@
 					iconClass: 'new_element',
 					onClick: function() {
 						Alchemy.openWindow(
-							'<%= alchemy.new_admin_element_path(:contentable_id => resource_instance_variable.id, :contentable_type => resource_model_name) -%>',
+							'<%= alchemy.new_admin_element_path(:contentable_id => resource_instance_variable.id, :contentable_type => resource_handler.model_name) -%>',
 							'<%= t("New Element") -%>',
 							'320',
 							'120',
