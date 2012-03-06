@@ -20,7 +20,7 @@ module AlchemyContentable
         items = resource_handler.model
       else
         search_terms = ActiveRecord::Base.sanitize("%#{params[:query]}%")
-        items = resource_handler.model.where(searchable_resource_attributes.map { |attribute|
+        items = resource_handler.model.where(resource_handler.searchable_attributes.map { |attribute|
           "`#{resource_handler.model_name.pluralize}`.`#{attribute[:name]}` LIKE #{search_terms}"
         }.join(" OR "))
       end
