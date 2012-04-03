@@ -17,8 +17,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
-  gem 'ruby-debug19' #, :require => 'ruby-debug'
+#  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
+#  gem 'ruby-debug19' #, :require => 'ruby-debug'
 end
 
 group :assets do
