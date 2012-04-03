@@ -11,11 +11,14 @@ gem "jquery-rails"
 gem 'alchemy_cms', :git => 'http://github.com/magiclabs/alchemy_cms', :branch  => 'next_stable'
 
 group :development, :test do
-  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
-  gem 'ruby-debug19' #, :require => 'ruby-debug'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'sqlite3'
+end
+
+group :development do
+  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
+  gem 'ruby-debug19' #, :require => 'ruby-debug'
 end
 
 group :assets do
