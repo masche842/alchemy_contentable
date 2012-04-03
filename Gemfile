@@ -7,7 +7,8 @@ gemspec
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
-gem 'alchemy_cms', :path => '/Users/mschettke/workspace/magiclabs/alchemy_cms'
+#gem 'alchemy_cms', :path => '/Users/mschettke/workspace/magiclabs/alchemy_cms'
+gem 'alchemy_cms', :git => 'http://github.com/magiclabs/alchemy_cms', :branch  => 'next_stable'
 
 group :development, :test do
   gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
