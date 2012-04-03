@@ -7,8 +7,8 @@ Alchemy::Element.class_eval do
 
   def extend_position_validation_scope
     if self.errors[:position] and
-        self.contentable_type and self.contentable_id and
-        self.class.where(:position => self.position, :cell_id => self.cell_id, :contentable_id => self.contentable_id, :contentable_type => self.contentable_type).where("id != ?", self.id).first.nil?
+      self.contentable_type and self.contentable_id and
+      self.class.where(:position => self.position, :cell_id => self.cell_id, :contentable_id => self.contentable_id, :contentable_type => self.contentable_type).where("id != ?", self.id).first.nil?
       self.errors.delete(:position)
       true
     end
@@ -19,7 +19,9 @@ Alchemy::Element.class_eval do
   def self.contentable_identifier(contentable_class)
     contentable_class.name.underscore.split('/').last.pluralize
   end
+
   has_many :sweeped_contentables, :class_name => 'Alchemy::SweepedContentables'
+
   def self.add_contentable_type(contentable_class)
     contentable_type = contentable_class.name
     has_many :"to_sweep_#{contentable_identifier(contentable_class)}", :through => :sweeped_contentables,
@@ -125,6 +127,19 @@ Alchemy::Element.class_eval do
 
   def trashed?
     page_id.nil? and contentable_id.nil?
+  end
+
+  # creates the contents for this element as described in the elements.yml
+  # same as in origin, but public
+  def create_contents
+    contents = []
+    if description["contents"].blank?
+      logger.warn "\n++++++\nWARNING! Could not find any content descriptions for element: #{self.name}\n++++++++\n"
+    else
+      description["contents"].each do |content_hash|
+        contents << Alchemy::Content.create_from_scratch(self, content_hash.symbolize_keys)
+      end
+    end
   end
 end
 
