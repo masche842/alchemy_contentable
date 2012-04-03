@@ -105,7 +105,7 @@ Alchemy::Element.class_eval do
 
   # Stores the contentable into `to_sweep_contentables` (Pages that have to be sweeped after updating element).
   def store_contentable(contentable)
-    return true if contentable.nil?
+    return true if contentable.nil? or not self.respond_to?("to_sweep_#{self.class.contentable_identifier(contentable.class)}".to_sym)
     unless self.send("to_sweep_#{self.class.contentable_identifier(contentable.class)}").include? contentable
       self.send("to_sweep_#{self.class.contentable_identifier(contentable.class)}") << contentable
       self.save
