@@ -1,5 +1,7 @@
 Alchemy::Element.class_eval do
 
+  attr_accessible :contentable_type, :contentable_id
+
   # All Elements inside a cell are a list. All Elements not in cell are in the cell_id.nil list.
   acts_as_list :scope => [:page_id, :cell_id, :contentable_id]
 

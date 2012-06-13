@@ -2,6 +2,7 @@ module AlchemyContentable
   module ElementsControllerMixin
 
     def index
+      #@page = Page.find(params[:page_id], :include => {:elements => :contents})
       @cells = @page.cells
       if @cells.blank?
         @elements = @page.elements.not_trashed
@@ -12,17 +13,18 @@ module AlchemyContentable
     end
 
     def list
-      @page_id = @page.id
-      if @page_id.blank? and not params[:page_urlname].blank?
+      @page_id = params[:page_id]
+      if @page_id.blank? && !params[:page_urlname].blank?
         @page_id = Page.find_by_urlname_and_language_id(params[:page_urlname], session[:language_id]).id
       end
       @elements = Alchemy::Element.find_all_by_page_id_and_public(@page_id, true)
     end
 
     def new
+      #@page = Page.find_by_id(params[:page_id])
       @element = @page.elements.build
       @elements = Alchemy::Element.all_for_page(@page)
-      clipboard_elements = get_clipboard('elements')
+      clipboard_elements = get_clipboard[:elements]
       unless clipboard_elements.blank?
         @clipboard_items = Alchemy::Element.all_from_clipboard_for_page(clipboard_elements, @page)
       end
@@ -32,13 +34,23 @@ module AlchemyContentable
     # Creates a element as discribed in config/alchemy/elements.yml on page via AJAX.
     def create
       @paste_from_clipboard = !params[:paste_from_clipboard].blank?
-      @element = Alchemy::Element.new_from_scratch(params[:element])
+      if @paste_from_clipboard
+        source_element = Alchemy::Element.find(element_from_clipboard[:id])
+        @element = Alchemy::Element.copy(source_element, {:page_id => @page.id})
+        if element_from_clipboard[:action] == 'cut'
+          @cutted_element_id = source_element.id
+          @clipboard.remove :elements, source_element.id
+          source_element.destroy
+        end
+      else
+        @element = Alchemy::Element.new_from_scratch(params[:element])
+      end
       put_element_in_cell if @page.can_have_cells?
-      @element.contentable = @page
+      @element.page = @page
       if @element.save
         render :action => :create
       else
-        render_remote_errors(@element, 'form#new_element button.button')
+        render_remote_errors(@element, 'form#new_alchemy_element button.button')
       end
     end
 
@@ -101,6 +113,24 @@ module AlchemyContentable
       end
       contentable_model = contentable_type.classify.constantize
       @page ||= contentable_model.includes(:elements => :contents).find(contentable_id)
+    end
+
+
+    def put_element_in_cell
+      element_with_cell_name = @paste_from_clipboard ? params[:paste_from_clipboard] : params[:element][:name]
+      cell_definition = Cell.definition_for(element_with_cell_name.split('#').last) if !element_with_cell_name.blank?
+      if cell_definition
+        @cell = @page.cells.find_or_create_by_name(cell_definition['name'])
+        @element.cell = @cell
+        return true
+      else
+        return false
+      end
+    end
+
+    def element_from_clipboard
+      @clipboard = get_clipboard
+      @clipboard.get(:elements, params[:paste_from_clipboard])
     end
 
 
