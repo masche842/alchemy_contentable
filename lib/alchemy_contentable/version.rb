@@ -1,3 +1,3 @@
 module AlchemyContentable
-  VERSION = "2.2.rc14"
+  VERSION = "2.2.2"
 end
