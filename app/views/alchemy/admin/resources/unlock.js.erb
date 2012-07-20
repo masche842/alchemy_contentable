@@ -1,0 +1,8 @@
+(function($) {
+  $('#locked_page_<%= resource_instance_variable.id -%>').remove();
+  $('#page_<%= resource_instance_variable.id -%> .sitemap_page').removeClass('locked');
+  <%- if @contentables_locked_by_user.blank? -%>
+  $('#subnav_additions label').hide();
+  <%- end -%>
+  Alchemy.growl('<%= flash[:notice] -%>');
+})(jQuery);

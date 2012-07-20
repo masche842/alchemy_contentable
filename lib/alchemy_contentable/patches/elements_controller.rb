@@ -31,7 +31,7 @@ module AlchemyContentable
       render :layout => false
     end
 
-    # Creates a element as discribed in config/alchemy/elements.yml on page via AJAX.
+    # Creates a element as described in config/alchemy/elements.yml on page via AJAX.
     def create
       @paste_from_clipboard = !params[:paste_from_clipboard].blank?
       if @paste_from_clipboard
@@ -46,7 +46,7 @@ module AlchemyContentable
         @element = Alchemy::Element.new_from_scratch(params[:element])
       end
       put_element_in_cell if @page.can_have_cells?
-      @element.page = @page
+      @element.page_or_contentable = @page
       if @element.save
         render :action => :create
       else
@@ -60,7 +60,7 @@ module AlchemyContentable
     def update
       @element = Alchemy::Element.find_by_id(params[:id])
       if @element.save_contents(params)
-        @page = @element.page
+        @page = @element.page_or_contentable
         @element.public = !params[:public].nil?
         @element_validated = @element.save!
       else
@@ -73,7 +73,7 @@ module AlchemyContentable
     # Trashes the Element instead of deleting it.
     def trash
       @element = Alchemy::Element.find(params[:id])
-      @page_id = @element.page_id
+      @page = @element.page_or_contentable
       @element.trash
     end
 
@@ -91,7 +91,7 @@ module AlchemyContentable
 
     def fold
       @element = Alchemy::Element.find(params[:id])
-      @page = @element.page
+      @page = @element.page_or_contentable
       @element.folded = !@element.folded
       @element.save
     end
@@ -115,7 +115,6 @@ module AlchemyContentable
       @page ||= contentable_model.includes(:elements => :contents).find(contentable_id)
     end
 
-
     def put_element_in_cell
       element_with_cell_name = @paste_from_clipboard ? params[:paste_from_clipboard] : params[:element][:name]
       cell_definition = Cell.definition_for(element_with_cell_name.split('#').last) if !element_with_cell_name.blank?
@@ -133,13 +132,9 @@ module AlchemyContentable
       @clipboard.get(:elements, params[:paste_from_clipboard])
     end
 
-
   end
 end
 
 require Alchemy::Engine.root.join('app', 'models', 'alchemy', 'element')
 Alchemy::ElementsController.send(:include, AlchemyContentable::ElementsControllerMixin)
 Alchemy::ElementsController.send(:before_filter, :load_contentable_to_page, :only => [:index, :list, :new, :create])
-
-
-

@@ -114,6 +114,18 @@ Alchemy::Element.class_eval do
     end
   end
 
+  def page_or_contentable=(contentable)
+    if contentable.is_a? Alchemy::Page
+      self.page = contentable
+    else
+      self.contentable = contentable
+    end
+  end
+  
+  def page_or_contentable
+    self.page or self.contentable
+  end
+
   # Nullifies the page_id and cell_id, fold the element, set it to unpublic and removes its position.
   def trash
     self.attributes = {

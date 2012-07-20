@@ -1,13 +1,14 @@
 <%- content_for(:subnav_additions) do -%>
+  <label><%= t('Active Pages') %> &raquo;</label>
   <%- @locked_contentables.each do |contentable| -%>
     <%- if resource_instance_variable == contentable -%>
       <%= render :partial => 'contentable_status' %>
     <%- else -%>
       <div class="subnavi_tab wide" id="locked_page_<%= contentable.id %>">
         <%= link_to resource_path(contentable, :action => :edit_content) do %>
-		<span class="page_name" title="<%= contentable.name %>">
-			<%= truncate contentable.name, :length => 15 %>
-		</span>
+        <span class="page_name" title="<%= contentable.name %>">
+        <%= truncate contentable.name, :length => 15 %>
+        </span>
         <% end %>
         <%= form_tag(resource_path(contentable, :action => :unlock), :remote => true) do %>
           <button class="icon_button small" title="<%= t('explain_unlocking') %>">
