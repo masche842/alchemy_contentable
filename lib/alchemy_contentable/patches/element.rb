@@ -3,18 +3,14 @@ Alchemy::Element.class_eval do
   attr_accessible :contentable_type, :contentable_id
 
   # All Elements inside a cell are a list. All Elements not in cell are in the cell_id.nil list.
-  acts_as_list :scope => [:page_id, :cell_id, :contentable_id]
+  acts_as_list :scope => [:page_id, :cell_id, :contentable_id, :contentable_type]
 
-  validate :extend_position_validation_scope
-
-  def extend_position_validation_scope
-    if self.errors[:position] and
-      self.contentable_type and self.contentable_id and
-      self.class.where(:position => self.position, :cell_id => self.cell_id, :contentable_id => self.contentable_id, :contentable_type => self.contentable_type).where("id != ?", self.id).first.nil?
-      self.errors.delete(:position)
-      true
-    end
-  end
+  # This is a nasty one...
+  # Remove all Alchemy validations and replace them in order to scope uniqueness of position to contentable
+  reset_callbacks :validate
+  validates_uniqueness_of :position, :scope => [:page_id, :cell_id], :if => "contentable_id.nil?"
+  validates_uniqueness_of :position, :scope => [:contentable_type, :contentable_id, :cell_id], :unless => "contentable_id.nil?"
+  validates_presence_of :name, :on => :create
 
   belongs_to :contentable, :polymorphic => true
 
@@ -27,7 +23,7 @@ Alchemy::Element.class_eval do
   def self.add_contentable_type(contentable_class)
     contentable_type = contentable_class.name
     has_many :"to_sweep_#{contentable_identifier(contentable_class)}", :through => :sweeped_contentables,
-             :uniq => true, :source => :contentable, :source_type => contentable_type
+      :uniq => true, :source => :contentable, :source_type => contentable_type
     Alchemy::ContentablesSweeper.send(:observe, contentable_class)
   end
 
@@ -36,21 +32,6 @@ Alchemy::Element.class_eval do
   scope :not_trashed, where('`alchemy_elements`.`page_id` IS NOT NULL OR `alchemy_elements`.`contentable_id` IS NOT NULL')
   scope :all_siblings, lambda { |element|
     element.page ? where(:page => self.page) : where(:contentable_id => self.contentable_id, :contentable_type => self.contentable_type) }
-
-
-  def self.new_from_scratch(attributes)
-    attributes.stringify_keys!
-    return Alchemy::Element.new if attributes['name'].blank?
-    element_descriptions = Alchemy::Element.descriptions
-    return if element_descriptions.blank?
-    element_scratch = element_descriptions.select { |m| m["name"] == attributes['name'].split('#').first }.first
-    element = Alchemy::Element.new(
-      element_scratch.except('contents', 'available_contents', 'display_name').merge({:page_id => attributes['page_id']})
-    )
-    element.contentable_id = attributes[:contentable_id]
-    element.contentable_type = attributes[:contentable_type]
-    element
-  end
 
   # List all elements for page_layout
   def self.all_for_page(page)
@@ -121,7 +102,7 @@ Alchemy::Element.class_eval do
       self.contentable = contentable
     end
   end
-  
+
   def page_or_contentable
     self.page or self.contentable
   end
@@ -154,6 +135,21 @@ Alchemy::Element.class_eval do
         contents << Alchemy::Content.create_from_scratch(self, content_hash.symbolize_keys)
       end
     end
+  end
+end
+
+Alchemy::Element.instance_eval do
+
+  class << self
+    alias_method :original_new_from_scratch, :new_from_scratch
+  end
+
+  # Builds a new element as described in +/config/alchemy/elements.yml+
+  def new_from_scratch(attributes)
+    element = original_new_from_scratch(attributes)
+    element.contentable_id = attributes[:contentable_id]
+    element.contentable_type = attributes[:contentable_type]
+    element
   end
 end
 
