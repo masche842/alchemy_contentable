@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
 #  s.files         = `git ls-files`.split("\n")
 #  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
 
-  s.add_dependency 'alchemy_cms', ["~> 2.2.2"]
-  s.add_dependency "rails", "~> 3.2.6"
+  s.add_dependency 'alchemy_cms', ["~> 2"]
+  s.add_dependency "rails", "~> 3.2"
 
   s.add_runtime_dependency(%q<magiclabs-userstamp>, ["~> 2.0.2"])
 

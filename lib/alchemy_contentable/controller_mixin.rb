@@ -5,16 +5,16 @@ module AlchemyContentable
 
     # We need to include this helper because we need the breadcrumb method.
     # And we cannot define the breadcrump method as helper_method, because rspec does not see helper_methods.
-    # Not the best solution, but's working.
+    # Not the best solution, but it is working for now.
     # Anyone with a better idea please provide a patch.
 
 
     def self.included(controller)
       controller.helper Alchemy::PagesHelper
-      controller.helper AlchemyContentable::ResourcesHelper
+      controller.helper Alchemy::ResourcesHelper
 
       controller.send :include, Alchemy::BaseHelper
-      controller.send :include, AlchemyContentable::ResourcesHelper
+      controller.send :include, Alchemy::ResourcesHelper
 
       #controller.before_filter :render_page_or_redirect, :only => [:show, :sitemap]
       controller.before_filter :load_page, :only => [:show, :sitemap]

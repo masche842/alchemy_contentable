@@ -1,15 +1,23 @@
 Alchemy::Element.class_eval do
 
-  attr_accessible :contentable_type, :contentable_id
+  attr_accessible(
+    :contentable_type,
+    :contentable_id,
+    :cell_id,
+    :create_contents_after_create,
+    :folded,
+    :name,
+    :page_id,
+    :position,
+    :public,
+    :unique
+  )
 
   # All Elements inside a cell are a list. All Elements not in cell are in the cell_id.nil list.
   acts_as_list :scope => [:page_id, :cell_id, :contentable_id, :contentable_type]
 
-  # This is a nasty one...
   # Remove all Alchemy validations and replace them in order to scope uniqueness of position to contentable
   reset_callbacks :validate
-  validates_uniqueness_of :position, :scope => [:page_id, :cell_id], :if => "contentable_id.nil?"
-  validates_uniqueness_of :position, :scope => [:contentable_type, :contentable_id, :cell_id], :unless => "contentable_id.nil?"
   validates_presence_of :name, :on => :create
 
   belongs_to :contentable, :polymorphic => true
@@ -35,7 +43,7 @@ Alchemy::Element.class_eval do
 
   # List all elements for page_layout
   def self.all_for_page(page)
-    #raise TypeError if page.class.name != "Alchemy::Page"
+    raise TypeError unless page
     # if page_layout has cells, collect elements from cells and group them by cellname
     page_layout = Alchemy::PageLayout.get(page.page_layout)
     if page_layout.blank?
@@ -45,32 +53,41 @@ Alchemy::Element.class_eval do
     elements_for_layout = []
     elements_for_layout += all_definitions_for(page_layout['elements'])
     return [] if elements_for_layout.blank?
-    # all unique elements from this layout
-    unique_elements = elements_for_layout.select { |m| m["unique"] == true }
+    # all unique and limited elements from this layout
+    limited_elements = elements_for_layout.select{ |m| m["unique"] == true || (m["amount"] > 0 unless m["amount"].nil?) }
     elements_already_on_the_page = page.elements
-    # delete all elements from the elements that could be placed that are unique and already and the page
-    unique_elements.each do |unique_element|
-      elements_already_on_the_page.each do |already_placed_element|
-        if already_placed_element.name == unique_element["name"]
-          elements_for_layout.delete(unique_element)
-        end
+    # delete all elements from the elements that could be placed that are unique or limited and already and the page
+    elements_counts = Hash.new(0)
+    elements_already_on_the_page.each { |e| elements_counts[e.name] += 1 }
+    limited_elements.each do |limited_element|
+      next if elements_counts[limited_element["name"]] == 0
+      if limited_element["unique"]
+        elements_for_layout.delete(limited_element) if elements_counts[limited_element["name"]] > 0
+        next
+      end
+      unless limited_element["amount"].nil?
+        elements_for_layout.delete(limited_element) if elements_counts[limited_element["name"]] >= limited_element["amount"]
       end
     end
-    return elements_for_layout
+    elements_for_layout
   end
 
   # Returns next Element on self.page or nil. Pass a Element.name to get next of this kind.
   def next(name = nil)
-    elements = self.class.all_siblings(self)
+    #taken from acts_as_list
+    elements = self.class.where("#{scope_condition} AND #{position_column} > #{send(position_column)}")
+    elements = elements.published
     elements = elements.where(:name => name) if name
-    elements.where("position > ?", self.position).order("position ASC").limit(1)
+    elements.order("position ASC").limit(1).first
   end
 
   # Returns previous Element on self.page or nil. Pass a Element.name to get previous of this kind.
   def prev(name = nil)
-    elements = self.class.all_siblings(self)
+    #taken from acts_as_list
+    elements = self.class.where("#{scope_condition} AND #{position_column} < #{send(position_column)}").published
+    elements = elements.published
     elements = elements.where(:name => name) if name
-    elements.where("position < ?", self.position).order("position ASC").limit(1)
+    elements.order("position DESC").limit(1).first
   end
 
   # Stores the page into `to_be_sweeped_pages` (Pages that have to be sweeped after updating element).
