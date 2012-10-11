@@ -115,3 +115,346 @@ using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dum
 using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
 [alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
 [alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
+Will use local index.
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_richtext
+[alchemy/essence_richtext] register class Alchemy::EssenceRichtext with index alchemy/essence_richtext
+[alchemy/essence_richtext] default field list for index alchemy/essence_richtext: [:stripped_body]
+using index in /Users/mschettke/workspace/magiclabs/alchemy_contentable/spec/dummy/index/test/alchemy/essence_text
+[alchemy/essence_text] register class Alchemy::EssenceText with index alchemy/essence_text
+[alchemy/essence_text] default field list for index alchemy/essence_text: [:body]
