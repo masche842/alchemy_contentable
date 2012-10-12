@@ -1,6 +1,6 @@
-<%- if clipboard_empty?('elements') -%>
+<% if clipboard_empty?('elements') %>
 <%= render :partial => 'new_element_form' %>
-<%- else -%>
+<% else %>
 <div id="overlay_tabs">
   <ul>
     <li><a href="#create_element_tab"><%= t('New') %></a></li>
@@ -40,4 +40,4 @@
   });
 
 </script>
-<%- end -%>
+<% end %>
