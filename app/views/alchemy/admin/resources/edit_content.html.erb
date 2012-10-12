@@ -128,16 +128,16 @@
                 true
               );
             }
-          },
-          {
-            title:'<%= t("Show trash") -%>',
-            label:'<%= t("Show trash") -%>',
-            iconClass:'trash<%= trash_empty?("elements") ? "" : " full" -%>',
-            buttonId:'element_trash_button',
-            onClick:function () {
-              Alchemy.openTrashWindow(<%= resource_instance_variable.id %>, '<%= t("Trash") -%>');
-            }
           }
+//          {
+//            title:'<%= t("Show trash") -%>',
+//            label:'<%= t("Show trash") -%>',
+//            iconClass:'trash<%= trash_empty?("elements") ? "" : " full" -%>',
+//            buttonId:'element_trash_button',
+//            onClick:function () {
+//              Alchemy.openContentableTrashWindow(<%= resource_instance_variable.id %>, '<%= resource_instance_variable.class %>', '<%= t("Trash") %>');
+//            }
+//          }
         ]
       }, function () {
         Alchemy.SortableElements(<%= resource_instance_variable.id %>, '<%= form_authenticity_token %>');
