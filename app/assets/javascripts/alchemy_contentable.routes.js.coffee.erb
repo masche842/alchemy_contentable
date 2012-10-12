@@ -1,0 +1,18 @@
+# This object provides dynamically generated Rails routes in Javascript.
+# A little bit hacky, but the best solution so far. ^_^
+<% self.class.instance_eval { include Alchemy::Engine.routes.url_helpers } %>
+
+(($, window, document) ->
+  if (typeof(Alchemy) is 'undefined')
+    window.Alchemy = {}
+
+  $.extend(Alchemy,
+
+    contentable_admin_trash_path: (contentable_id, contentable_type) ->
+      url = '<%= admin_trash_path %>'
+      "#{url}?contentable_id=#{contentable_id}&contentable_type=#{contentable_type}" if (contentable_id and contentable_type)
+      return url
+
+  )
+)(jQuery, window, document)
+
