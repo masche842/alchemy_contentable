@@ -16,7 +16,7 @@ module AlchemyContentable
       model.has_many :sweeped_contentables, :as => :contentable, :class_name => 'Alchemy::SweepedContentables'
 
       require 'alchemy_contentable/patches/element'
-      Alchemy::Element.add_contentable_type(model)
+      Alchemy::Element.add_contentable_type(model) if Alchemy::Element.respond_to?(:add_contentable_type)
       # load it once to make active...
       model.new
 
