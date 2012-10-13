@@ -22,13 +22,15 @@ group :development, :test do
 end
 
 group :development do
-  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
-  gem 'ruby-debug19' #, :require => 'ruby-debug'
+  unless ENV['CI']
+    gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
+    gem 'ruby-debug19' #, :require => 'ruby-debug'
+  end
 end
 
 group :assets do
   gem 'therubyracer'
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
   gem 'sassy-buttons'

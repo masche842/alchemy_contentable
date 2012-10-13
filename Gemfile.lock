@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    alchemy_contentable (2.2.4)
+    alchemy_contentable (2.2.5)
       alchemy_cms (~> 2)
       magiclabs-userstamp (~> 2.0.2)
       rails (~> 3.2)
