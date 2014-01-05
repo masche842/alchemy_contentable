@@ -7,7 +7,7 @@ gemspec
 
 # jquery-rails is used by the dummy application
 gem 'jquery-rails'
-gem 'alchemy_cms', '~>2.2'
+gem 'alchemy_cms', '~>2.2.4'
 
 #gem 'alchemy_cms', :path => '../../alchemy_cms'
 
@@ -19,11 +19,6 @@ group :development, :test do
   gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'spork'
-end
-
-group :development do
-  gem 'ruby-debug-base19x', '~> 0.11.30.pre10'
-  gem 'ruby-debug19' #, :require => 'ruby-debug'
 end
 
 group :assets do

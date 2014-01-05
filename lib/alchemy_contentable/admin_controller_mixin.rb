@@ -38,7 +38,7 @@ module AlchemyContentable
 
     def new
       instance_variable_set("@#{resource_handler.model_name}", resource_handler.model.new)
-      @page_layouts = Alchemy::PageLayout.get_layouts_for_select(session[:language_id], false)
+      @page_layouts = Alchemy::PageLayout.layouts_for_select(session[:language_id], false)
       render :layout => false
     end
 
